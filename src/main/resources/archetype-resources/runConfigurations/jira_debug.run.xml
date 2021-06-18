@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="package &amp; deploy" type="MavenRunConfiguration" factoryName="Maven">
+  <configuration default="false" name="jira:debug" type="MavenRunConfiguration" factoryName="Maven">
     <MavenSettings>
       <option name="myGeneralSettings" />
       <option name="myRunnerSettings" />
@@ -10,17 +10,12 @@
           </option>
           <option name="goals">
             <list>
-              <option value="package" />
-              <option value="upm:uploadPluginFile" />
-              <option value="-Ddeploy.username=admin" />
-              <option value="-Ddeploy.password=admin" />
-              <option value="-Ddeploy.url=http://localhost:2990" />
-              <option value="-DpluginKey=${groupId}.${artifactId}" />
-              <option value="-DpluginFile=target/${artifactId}-${version}.jar" />
-              <option value="upm:reindex" />
+              <option value="jira:debug" />
+              <option value="-Datlassian.dev.mode=false" />
+              <option value="-Dfrontend.devMode=true" />
             </list>
           </option>
-          <option name="pomFileName" value="pom.xml" />
+          <option name="pomFileName" />
           <option name="profilesMap">
             <map />
           </option>

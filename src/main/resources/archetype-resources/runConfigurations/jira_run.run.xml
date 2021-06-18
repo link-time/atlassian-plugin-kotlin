@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="confluence:debug" type="MavenRunConfiguration" factoryName="Maven">
+  <configuration default="false" name="jira:run" type="MavenRunConfiguration" factoryName="Maven">
     <MavenSettings>
       <option name="myGeneralSettings" />
       <option name="myRunnerSettings" />
@@ -10,11 +10,12 @@
           </option>
           <option name="goals">
             <list>
-              <option value="confluence:debug" />
+              <option value="jira:run" />
               <option value="-Datlassian.dev.mode=false" />
+              <option value="-Dfrontend.devMode=true" />
             </list>
           </option>
-          <option name="pomFileName" value="pom.xml" />
+          <option name="pomFileName" />
           <option name="profilesMap">
             <map />
           </option>

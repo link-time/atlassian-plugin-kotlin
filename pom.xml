@@ -25,16 +25,6 @@
         </license>
     </licenses>
 
-    <developers>
-        <developer>
-            <name>Alexander Weickmann</name>
-            <email>alexander.weickmann@gmail.com</email>
-            <url>https://github.com/weickmanna</url>
-            <organization>linked-planet GmbH</organization>
-            <organizationUrl>https://linked-planet.com</organizationUrl>
-        </developer>
-    </developers>
-
     <scm>
         <connection>scm:git:git://github.com/linked-planet/atlassian-plugin-kotlin.git</connection>
         <developerConnection>scm:git:https://github.com/linked-planet/atlassian-plugin-kotlin.git</developerConnection>

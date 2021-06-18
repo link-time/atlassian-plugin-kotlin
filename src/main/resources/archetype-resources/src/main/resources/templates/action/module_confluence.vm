@@ -1,0 +1,21 @@
+#set($h = "#")
+<html lang="en">
+<head>
+    <meta name="decorator" content="atl.general"/>
+</head>
+
+<body class="app-body">
+
+<section id="content" role="main">
+    ${h}* @vtlvariable name="frontendDevMode" type="java.lang.Boolean" *${h}
+    ${h}if ($frontendDevMode)
+        <script type="text/javascript" src="http://localhost:8080/frontend/frontend.js">
+        </script>
+    ${h}else
+        <script type="text/javascript" src="/download/resources/${groupId}.${artifactId}:frontend/js/frontend.min.js">
+        </script>
+    ${h}end
+</section>
+
+</body>
+</html>

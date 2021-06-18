@@ -7,4 +7,59 @@
 
     <resource type="i18n" name="i18n" location="i18n/plugin"/>
 
+#if( $generateFrontend == "true" )
+
+    #if( $atlassianApp == "jira")
+    <resource type="download" name="js/" location="/js"/>
+
+    <!-- .................................................................. -->
+    <!-- TOP LEVEL APP MENU -->
+    <!-- .................................................................. -->
+    <web-item key="app-item" section="system.top.navigation.bar">
+        <label key="app-item.label"/>
+        <link linkId="app-dropdown"/>
+    </web-item>
+
+    <web-section key="app-section" location="app-dropdown"/>
+
+    <web-item key="module-item" section="app-dropdown/app-section">
+        <label key="module-item.label"/>
+        <link>/secure/ModuleAction!default.jspa</link>
+    </web-item>
+
+    <webwork1 key="app-action">
+        <actions>
+            <action name="${package}.impl.action.ModuleAction"
+                    alias="ModuleAction">
+                <view name="input">/templates/action/module_jira.vm</view>
+                <view name="success">/templates/action/module_jira.vm</view>
+            </action>
+        </actions>
+    </webwork1>
+    #end
+
+    #if( $atlassianApp == "confluence")
+    <web-resource key="frontend" name="Frontend">
+        <resource type="download" name="js/" location="/js"/>
+    </web-resource>
+
+    <web-item key="module-item" section="system.header/left" weight="42">
+        <label key="module-item.label"/>
+        <link>/plugins/module/module.action</link>
+    </web-item>
+
+    <xwork key="app-action">
+        <package name="webwork" extends="default" namespace="/plugins/module">
+            <default-interceptor-ref name="defaultStack"/>
+            <action name="module"
+                    class="${package}.impl.action.ConfluenceAction"
+                    method="doDefault">
+                <result name="input" type="velocity">/templates/action/module_confluence.vm</result>
+            </action>
+        </package>
+    </xwork>
+    #end
+
+#end
+
 </atlassian-plugin>

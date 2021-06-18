@@ -46,7 +46,9 @@ mvn archetype:generate -B -U \
     "-DgenerateGithubActions=$generateGithubActions" \
     "-DgenerateBitbucketPipelines=$generateBitbucketPipelines" \
     "-DgenerateDockerEnvironment=false" \
-    "-DgenerateStubs=false"
+    "-DgenerateStubs=false" \
+    "-DgenerateFrontend=$generateFrontend" \
+    "-Dgoals=license:update-file-header"
 
 
 echo "---------------------------------------------------"
@@ -55,9 +57,6 @@ echo "---------------------------------------------------"
 # must not overwrite the script itself
 rm $ARTIFACT_ID/regenerate.sh
 # inject current project version into regenerated files
-if test -f "$ARTIFACT_ID/runConfigurations/package___deploy.xml"; then
-  sed -i -E "s/(.*)-[0-9]+\.[0-9]+\.[0-9]+.*\.jar/\1-$VERSION.jar/g" $ARTIFACT_ID/runConfigurations/package___deploy.xml
-fi
 sed -i -E "0,/<version>[0-9]+\.[0-9]+\.[0-9]+(.*)<\/version>/s/<version>[0-9]+\.[0-9]+\.[0-9]+(.*)<\/version>/<version>$VERSION<\/version>/" $ARTIFACT_ID/pom.xml
 
 

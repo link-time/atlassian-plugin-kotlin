@@ -27,6 +27,7 @@ Use [install-all-tags.sh](install-all-tags.sh) to install all available tags on 
 | generateBitbucketPipelines | Whether to generate bitbucket-pipelines.yml and corresponding scripts |
 | generateDockerEnvironment | Whether to generate a `docker-compose.yml` with a basic Atlassian-provided app container |
 | generateStubs | Whether to generate stubs (all archetype files in `src`) |
+| generateFrontend | Whether to generate a separate React/KotlinJS frontend  |
 
 ### Example
 ```
@@ -47,7 +48,9 @@ mvn archetype:generate -B \
     "-DgenerateGithubActions=true" \
     "-DgenerateBitbucketPipelines=true" \
     "-DgenerateDockerEnvironment=true" \
-    "-DgenerateStubs=true"
+    "-DgenerateStubs=true" \
+    "-DgenerateFrontend=true" \
+    "-Dgoals=license:update-file-header"
 ```
 
 

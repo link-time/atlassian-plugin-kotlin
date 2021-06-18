@@ -13,12 +13,7 @@ set_commit_version() {
   V=$1
   COMMIT_MSG=$2
   mvn -B versions:set "-DnewVersion=$V" versions:commit
-  if test -f "runConfigurations/package___deploy.xml"; then
-    sed -i -E "s/(.*)-[0-9]+\.[0-9]+\.[0-9]+.*\.jar/\1-$V.jar/g" runConfigurations/package___deploy.xml
-  fi
-  git ls-files . | grep 'pom.xml' | xargs git add &&
-    git ls-files . | grep 'package___deploy.xml' | xargs git add &&
-    git commit -m "$COMMIT_MSG"
+  git ls-files . | grep 'pom.xml' | xargs git add && git commit -m "$COMMIT_MSG"
 }
 
 echo_demarcation() {

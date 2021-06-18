@@ -1,0 +1,25 @@
+#set($h = "#")
+${h}* @vtlvariable name="i18n" type="com.atlassian.jira.util.I18nHelper" *${h}
+
+${h}set($title = "$i18n.getText('module-item.label')")
+
+<html lang="en">
+<head>
+    <title>$title</title>
+    <meta name="decorator" content="atl.general"/>
+</head>
+
+<body class="app-body">
+
+<section id="content" role="main">
+    ${h}* @vtlvariable name="frontendDevMode" type="java.lang.Boolean" *${h}
+    ${h}if ($frontendDevMode)
+        <script type="text/javascript" src="http://localhost:8080/frontend/frontend.js"/>
+    ${h}else
+        ${h}* @vtlvariable name="requestContext" type="com.atlassian.jira.util.velocity.VelocityRequestContext" *${h}
+        <script type="text/javascript" src="$requestContext.baseUrl/download/resources/${groupId}.${artifactId}/js/frontend.min.js"/>
+    ${h}end
+</section>
+
+</body>
+</html>

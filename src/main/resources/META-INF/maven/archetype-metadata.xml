@@ -4,6 +4,27 @@
         xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd">
 
     <fileSets>
+        <fileSet encoding="UTF-8">
+            <directory>frontend/src/main/kotlin</directory>
+        </fileSet>
+        <fileSet encoding="UTF-8">
+            <directory>frontend/src/main/resources</directory>
+        </fileSet>
+        <fileSet encoding="UTF-8">
+            <directory>frontend/webpack.config.d</directory>
+        </fileSet>
+        <fileSet encoding="UTF-8">
+            <directory>frontend/gradle</directory>
+        </fileSet>
+        <fileSet filtered="true" encoding="UTF-8">
+            <directory>frontend</directory>
+            <includes>
+                <include>build.gradle.kts</include>
+                <include>gradlew</include>
+                <include>gradlew.bat</include>
+                <include>settings.gradle.kts</include>
+            </includes>
+        </fileSet>
         <fileSet filtered="true" packaged="true" encoding="UTF-8">
             <directory>src/main/kotlin</directory>
         </fileSet>
@@ -63,6 +84,9 @@
             <defaultValue>true</defaultValue>
         </requiredProperty>
         <requiredProperty key="generateStubs">
+            <defaultValue>true</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="generateFrontend">
             <defaultValue>true</defaultValue>
         </requiredProperty>
     </requiredProperties>
