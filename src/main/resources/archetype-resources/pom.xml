@@ -296,8 +296,6 @@
                     <systemPropertyVariables>
                         <atlassian.mail.senddisabled>false</atlassian.mail.senddisabled>
                     </systemPropertyVariables>
-                    <!-- Do not start the product during integration tests (because we do it via Docker) -->
-                    <noWebapp>true</noWebapp>
                 </configuration>
             </plugin>
 #end
@@ -326,8 +324,6 @@
                         </Import-Package>
                         <Spring-Context>*</Spring-Context>
                     </instructions>
-                    <!-- Do not start the product during integration tests (because we do it via Docker) -->
-                    <noWebapp>true</noWebapp>
                 </configuration>
             </plugin>
 #end
@@ -385,7 +381,6 @@
                 <artifactId>maven-failsafe-plugin</artifactId>
                 <version>2.21.0</version>
                 <configuration>
-                    <skipITs>true</skipITs>
                     <includes>
                         <include>it/**/*IntegrationTest.java</include>
                     </includes>
@@ -488,33 +483,6 @@
             </build>
         </profile>
     </profiles>
-
-
-    <repositories>
-        <repository>
-            <id>atlassian-public</id>
-            <url>https://maven.atlassian.com/repository/public</url>
-        </repository>
-#if( $atlassianApp == "jira-insight" )
-        <repository>
-            <id>riada-repository</id>
-            <url>https://repo.riada.io/repository/riada-repo/</url>
-        </repository>
-#end
-        <!-- jndi -->
-        <repository>
-            <id>geomajas</id>
-            <url>http://maven.geomajas.org</url>
-        </repository>
-    </repositories>
-
-
-    <pluginRepositories>
-        <pluginRepository>
-            <id>atlassian-public</id>
-            <url>https://maven.atlassian.com/repository/public</url>
-        </pluginRepository>
-    </pluginRepositories>
 
 
     <scm>

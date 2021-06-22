@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  This settings file overrides the default user settings file. This way all required dependencies can be resolved using
+  the atlassian-public repository as a mirror for the central repository.
+-->
+
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+  <mirrors>
+    <mirror>
+      <id>atlassian-central</id>
+      <mirrorOf>central</mirrorOf>
+      <name>atlassian-central</name>
+      <url>https://maven.atlassian.com/repository/public</url>
+    </mirror>
+  </mirrors>
+</settings>
